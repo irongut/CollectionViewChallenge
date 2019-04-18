@@ -1,18 +1,22 @@
 # CollectionView Challenge
 
-Following up on the [Visual Challenge](https://github.com/davidortinau/VisualChallenge), the CollectionView Challenge is aimed at taking a previous or current project's ListView and convert it to the new CollectionView.
-
-_Note: Some functionality may not be (fully) implemented yet as of this time. We're working to make sure that it is, but we still want your feedback on what's available now!_
-
-## Challenge Quick Start
-
-1. Fork this repository
-2. Open `CollectionViewChallengePage.xaml`
-3. Take a ListView from another project, previous or current, and convert it to a CollectionView, replacing the placeholder on the page. If you need to, you can replace any data with placeholders; the goal is to replicate the functionality that your app's ListView utilizes.
-4. Submit a pull request of your progress back to this repository. Please include the following feedback:
-   - Comparison screenshots of your results! If you really want to go the extra mile, video is awesome to see, too.
-   - Your experience converting the `ListView` to a `CollectionView` (Any difficulties?)
-   - How is the performance compared to the `ListView`?
-   - Is there anything missing that you'd like to see?
+Details of the CollectionView Challenge can be found [here](https://github.com/pauldipietro/CollectionViewChallenge).
 
 `CollectionView` docs can be found [here](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/collectionview/).
+
+## My Implementation
+
+I copied a screen from one of my current apps into the project including SVG images, converters, models and a cut down version of my ViewModel that fakes the data. I then converted it to use a CollectionView instead of a ListView.
+
+I ran into one issue - ListView DataTemplates use a ViewCell, CollectionView DataTemplates do not. Unfortunately VS2019 did not spot anything wrong but at runtime Mono was throwing an Invalid Cast exception and closing the app. The exception confused me for a while until I looked at the docs more closely. This would not have been an issue if I was creating a new screen using CollectionView rather than converting one from a ListView.
+
+This screen does not have a lot of data to display but each cell is quite complicated with two SVG images. Performance seems similar for both implementations as shown in the videos below from a Galaxy S6 Edge (Android 7.0).
+
+
+## Using ListView
+
+![ListView](https://github.com/irongut/CollectionViewChallenge/blob/master/CVC-ListView-S6Edge.gif)
+
+## Using CollectionView
+
+![ListView](https://github.com/irongut/CollectionViewChallenge/blob/master/CVC-CollectionView-S6Edge.gif)
